@@ -31,7 +31,7 @@ A modern, fully responsive e-commerce platform for a jewelry store, built with *
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/Kareem-Mohamed-Wardany/OJewelry-front
+   git clone https://github.com/Kareem-Mohamed-Wardany/OJewelry-front.git
    ```
 
 2. **Navigate to the project folder:**

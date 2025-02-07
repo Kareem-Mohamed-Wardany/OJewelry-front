@@ -6,11 +6,11 @@ A modern, fully responsive e-commerce platform for a jewelry store, built with *
 
 ### Customer Features
 
-- ⭐ Customers can add reviews and ratings for products.
 - 🛍️ Browse a variety of jewelry products with detailed descriptions.
 - 🛒 Add products to the shopping cart and manage the cart contents.
 - 📦 Enter shipping addresses for delivery.
 - 💳 Secure payment processing via **Paymob** integration.
+- ⭐ Customers can add reviews and ratings for products.
 
 ### Admin Features
 

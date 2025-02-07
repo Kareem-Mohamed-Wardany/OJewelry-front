@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jewelry Website
 
-## Getting Started
+A modern, fully responsive e-commerce platform for a jewelry store, built with **Next.js**, **Tailwind CSS**, and **Redux** for state management. The platform allows customers to browse jewelry collections, add products to their cart, enter shipping details, and complete payments via **Paymob** integration. Admins can manage products, apply discounts, and update the homepage visuals dynamically.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Customer Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🛍️ Browse a variety of jewelry products with detailed descriptions.
+- 🛒 Add products to the shopping cart and manage the cart contents.
+- 📦 Enter shipping addresses for delivery.
+- 💳 Secure payment processing via **Paymob** integration.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Admin Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ➕ Add new jewelry products with images and descriptions.
+- ✏️ Edit existing product details, including pricing and availability.
+- 💰 Apply sales or discounts to specific products.
+- 🖼️ Upload and change the Hero image for the homepage.
+- 📷 Upload multiple images for better product display.
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js** – For server-side rendering and optimized performance.
+- **Tailwind CSS** – For modern and responsive styling.
+- **Redux** – For efficient global state management.
+- **Paymob API** – For seamless and secure payment processing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository:**
 
-## Deploy on Vercel
+   ```sh
+   git clone https://github.com/your-repo/jewelry-store.git
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Navigate to the project folder:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```sh
+   cd jewelry-store
+   ```
+
+3. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+4. **Set up environment variables:**
+   Create a `.env.local` file and add the necessary credentials for Paymob and database access:
+
+   ```env
+   NEXT_PUBLIC_PAYMOB_API_KEY=your_paymob_key
+   NEXT_PUBLIC_DATABASE_URL=your_database_url
+   ```
+
+5. **Run the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+6. **Open your browser and go to:**
+   ```sh
+   http://localhost:3000
+   ```
+
+## 🌍 Deployment
+
+- The application can be deployed on **Vercel** for seamless performance.
+- Ensure all environment variables are properly configured on the hosting platform.
+
+## 🤝 Contributions
+
+Feel free to contribute to the project by submitting pull requests or reporting issues.
+
+## 📜 License
+
+This project is licensed under the **MIT License**.

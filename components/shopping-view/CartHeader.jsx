@@ -14,10 +14,13 @@ const CartHeader = ({ cartItems, setOpenCartSheet, openCartSheet }) => {
         aria-label="Toggle cart sheet"
       >
         <ShoppingCart className="w-6 h-6" />
-        <span className="absolute top-[-2px] right-[2px] font-bold text-sm">
-          {cartItems?.items?.length || 0}
-        </span>
+        {cartItems?.items?.length > 0 && (
+          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-white text-xs font-bold">
+            {cartItems.items.length}
+          </span>
+        )}
       </Button>
+
       {cartItems && (
         <UserCartWrapper
           setOpenCartSheet={setOpenCartSheet}

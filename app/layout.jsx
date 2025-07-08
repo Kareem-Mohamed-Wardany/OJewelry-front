@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "O Jewelry Shop",
-  description: "O Jewelry Shop here you can find all things related to Jewelry",
+  title: "Jewellery Shop",
+  description:
+    "Jewellery Shop here you can find all things related to Jewellery",
 };
 export default function RootLayout({ children }) {
   return (

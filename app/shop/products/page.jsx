@@ -33,6 +33,7 @@ function ShoppingListing() {
   const [sort, setSort] = useState("");
   const [page, setPage] = useState(1); // Track the current page
   const [firstTime, setFirstTime] = useState(true); // Track the current page
+  const [firstTime1, setFirstTime1] = useState(true); // Track the current page
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
 
   const containerRef = useRef(); // Reference for the product list container
@@ -109,15 +110,21 @@ function ShoppingListing() {
     }
   }, [firstTime, dispatch]);
 
-  // Initialize sort and filters on first render
-  useEffect(() => {
-    const initialFilters = JSON.parse(sessionStorage.getItem("filters")) || {};
-    setSort("price-lowtohigh");
-    setFilters(initialFilters);
-  }, []);
-
   // Trigger the API call for fetching products when sort, filters, or page changes
   useEffect(() => {
+    if (firstTime1) {
+      const initialFilters =
+        JSON.parse(sessionStorage.getItem("filters")) || {};
+      setSort("price-lowtohigh");
+      setFilters(initialFilters);
+      setFirstTime1(false);
+    }
+  }, [firstTime1]);
+
+  useEffect(() => {
+    if (firstTime1) return; // wait for initial set
+
+    // Always fetch, no skipping
     dispatch(
       fetchAllFilteredProducts({
         filterParams: filters,
@@ -125,7 +132,7 @@ function ShoppingListing() {
         page,
       })
     );
-  }, [dispatch, sort, filters, page]);
+  }, [dispatch, sort, filters, page, firstTime1]);
 
   useEffect(() => {
     if (productDetails !== null) setOpenDetailsDialog(true);

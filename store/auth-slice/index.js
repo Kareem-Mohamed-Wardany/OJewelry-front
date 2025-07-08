@@ -104,7 +104,7 @@ const authSlice = createSlice({
         state.isAuthenticated = action.payload.success;
         state.user = action.payload.success ? action.payload.data.user : null;
         state.token = action.payload.success ? action.payload.data.token : "";
-        state.isAdmin = action.payload.data.user.role === 'admin' ? true : false;
+        state.isAdmin = action.payload.data?.user.role === 'admin' ? true : false;
 
       })
       .addCase(loginUser.rejected, (state, action) => {

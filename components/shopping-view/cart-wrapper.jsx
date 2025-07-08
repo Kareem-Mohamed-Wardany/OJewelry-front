@@ -26,27 +26,44 @@ function UserCartWrapper({ cartItems, setOpenCartSheet }) {
         <SheetTitle>Your Cart</SheetTitle>
       </SheetHeader>
       <div className="mt-8 space-y-4">
-        {cartItems && cartItems.length > 0
-          ? cartItems.map((item) => (
-              <UserCartItemsContent cartItem={item} key={item.productId._id} />
-            ))
-          : null}
+        {cartItems && (
+          <>
+            {cartItems.length > 0 ? (
+              <>
+                {cartItems.map((item) => (
+                  <UserCartItemsContent
+                    cartItem={item}
+                    key={item.productId._id}
+                  />
+                ))}
+
+                <div className="mt-8 space-y-4">
+                  <div className="flex justify-between">
+                    <span className="font-bold">Total</span>
+                    <span className="font-bold">
+                      EGP {MoneyFormat(totalCartAmount)}
+                    </span>
+                  </div>
+                </div>
+
+                <Button
+                  onClick={() => {
+                    setOpenCartSheet(false);
+                    router.push("/shop/checkout");
+                  }}
+                  className="w-full mt-6"
+                >
+                  Checkout
+                </Button>
+              </>
+            ) : (
+              <p className="font-bold text-center text-red-600">
+                Add some products to your cart
+              </p>
+            )}
+          </>
+        )}
       </div>
-      <div className="mt-8 space-y-4">
-        <div className="flex justify-between">
-          <span className="font-bold">Total</span>
-          <span className="font-bold">EGP {MoneyFormat(totalCartAmount)}</span>
-        </div>
-      </div>
-      <Button
-        onClick={() => {
-          setOpenCartSheet(false);
-          router.push("/shop/checkout");
-        }}
-        className="w-full mt-6"
-      >
-        Checkout
-      </Button>
     </SheetContent>
   );
 }

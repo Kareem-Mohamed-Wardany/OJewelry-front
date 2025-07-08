@@ -6,22 +6,6 @@ const initialState = {
   pagination: {}
 };
 
-export const addNewProduct = createAsyncThunk(
-  "/products/addnewproduct",
-  async (formData) => {
-    const token = localStorage.getItem("token");
-    const result = await fetch("http://localhost:5000/api/v1/admin/products/add", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
-    const data = await result.json();
-    return data;
-  }
-);
-
 export const fetchAllProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async (page) => {
@@ -40,6 +24,26 @@ export const fetchAllProducts = createAsyncThunk(
   }
 );
 
+
+
+export const addNewProduct = createAsyncThunk(
+  "/products/addnewproduct",
+  async (formData) => {
+    const token = localStorage.getItem("token");
+    const result = await fetch("http://localhost:5000/api/v1/admin/products/add", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+    const data = await result.json();
+    return data;
+  }
+);
+
+
+
 export const editProduct = createAsyncThunk(
   "/products/editProduct",
   async ({ id, formData }) => {
@@ -49,10 +53,9 @@ export const editProduct = createAsyncThunk(
       {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: formData,
       }
     );
     const data = await result.json();
@@ -89,8 +92,8 @@ const AdminProductsSlice = createSlice({
       })
       .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.productList = action.payload.data.products;
-        state.pagination = action.payload.data.pagination;
+        state.productList = action.payload.data?.products;
+        state.pagination = action.payload.data?.pagination;
       })
       .addCase(fetchAllProducts.rejected, (state) => {
         state.isLoading = false;

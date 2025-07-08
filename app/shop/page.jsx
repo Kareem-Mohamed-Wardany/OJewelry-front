@@ -23,7 +23,7 @@ const categoriesWithIcon = Object.entries(categoryOptionsMap).reduce(
     acc[key] = {
       id: key, // Use the key as the id
       label: value, // Keep the label as the value from the map
-      image: "https://placehold.co/360x480/webp", // Use the placeholder image (or replace with actual logic)
+      image: require(`@/assets/icons/${key}.jpg`), // Use the placeholder image (or replace with actual logic)
     };
     return acc;
   },
@@ -187,17 +187,21 @@ function ShoppingHome() {
             Feature Products
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {productList && productList.length > 0
-              ? productList.map((productItem) => (
-                  <ShoppingProductTile
-                    key={productItem._id}
-                    handleGetProductDetails={handleGetProductDetails}
-                    product={productItem}
-                    handleAddtoCart={handleAddtoCart}
-                    user={user}
-                  />
-                ))
-              : null}
+            {productList && productList.length > 0 ? (
+              productList.map((productItem) => (
+                <ShoppingProductTile
+                  key={productItem._id}
+                  handleGetProductDetails={handleGetProductDetails}
+                  product={productItem}
+                  handleAddtoCart={handleAddtoCart}
+                  user={user}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center text-gray-500">
+                No products available
+              </div>
+            )}
           </div>
         </div>
       </section>

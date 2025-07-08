@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { shoppingViewHeaderMenuItems } from "@/config";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import logo from "@/assets/icons/logo.png";
 
 import { setLogOut } from "@/store/auth-slice";
 import { useEffect, useState } from "react";
@@ -67,9 +66,8 @@ function ShoppingHeader() {
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image className="h-30 w-14" src={logo} alt="logo" />
           <span className="font-bold text-secondary hover:text-blue-600 transition-colors">
-            OJewelry
+            Jewellery Store
           </span>
         </Link>
 

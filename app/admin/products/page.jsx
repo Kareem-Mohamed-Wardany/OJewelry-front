@@ -28,7 +28,6 @@ const initialFormData = {
   price: "",
   salePrice: "",
   totalStock: "",
-  averageReview: 0,
 };
 
 function AdminProducts() {
@@ -52,12 +51,12 @@ function AdminProducts() {
 
   const isFormValid = useCallback(() => {
     return Object.keys(formData)
-      .filter(
-        (currentKey) =>
-          currentKey !== "averageReview" || currentKey !== "salePrice"
-      )
-      .map((key) => formData[key] !== "")
-      .every((item) => item);
+      .filter((key) => key !== "salePrice")
+      .every((key) => {
+        const value = formData[key];
+        // Check value is neither null, undefined, nor empty string (or other falsy you want to exclude)
+        return value !== null && value !== undefined && value !== "";
+      });
   }, [formData]);
 
   const handleDelete = useCallback(
@@ -78,38 +77,50 @@ function AdminProducts() {
     event.preventDefault();
     setLoading(true);
 
-    if (imageFile) {
-      setImageLoadingState(true);
-    }
     const data = new FormData();
-    data.append("img", imageFile);
+
+    if (imageFile) {
+      console.log("New image selected:", imageFile);
+      console.log("uploadedImageUrl:", uploadedImageUrl);
+      setImageLoadingState(true);
+      data.append("img", imageFile);
+    }
+
+    // Append other form fields
     data.append("title", formData.title);
     data.append("category", formData.category);
     data.append("material", formData.material);
     data.append("price", formData.price);
-    data.append("salePrice", formData.salePrice);
+    if (formData.salePrice !== "") {
+      data.append("salePrice", formData.salePrice);
+    }
     data.append("totalStock", formData.totalStock);
-    data.append("averageReview", formData.averageReview);
+    data.append("averageReview", 0);
+    console.log(data);
 
+    // Choose action: add or edit
     const actionResult =
       currentEditedId !== null
-        ? await dispatch(editProduct({ id: currentEditedId, formData }))
+        ? await dispatch(editProduct({ id: currentEditedId, formData: data }))
         : await dispatch(addNewProduct(data));
 
-    console.log(actionResult);
-
+    // Handle result
     if (actionResult.payload.success) {
-      console.log("ex");
       dispatch(fetchAllProducts(currentPage));
       setFormData(initialFormData);
+      setImageFile(null);
+      setUploadedImageUrl("");
       setOpenCreateProductsDialog(false);
-      setImageFile("");
       setCurrentEditedId(null);
+
       const msg = currentEditedId
         ? "Product updated successfully"
         : "Product added successfully";
       toast.success(msg);
-    } else toast.error(actionResult.payload.msg);
+    } else {
+      toast.error(actionResult.payload.msg);
+    }
+
     setLoading(false);
   };
 
@@ -216,7 +227,7 @@ function AdminProducts() {
               setFormData={setFormData}
               buttonText={currentEditedId !== null ? "Edit" : "Add"}
               formControls={addProductFormElements}
-              isBtnDisabled={!isFormValid() || loading}
+              isBtnDisabled={loading}
               className="flex flex-col space-y-4"
             />
           </div>

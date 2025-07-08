@@ -53,7 +53,7 @@ function Footer() {
                 Instagram
               </a>
               <a
-                href="https://www.instagram.com/theojewelryegypt/"
+                href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -67,7 +67,7 @@ function Footer() {
         {/* Bottom Section with Copyright and Legal Links */}
         <div className="mt-6 border-t border-gray-700 pt-6 text-center text-sm">
           <p>
-            &copy; {new Date().getFullYear()} O Jewelry. All rights reserved.
+            &copy; {new Date().getFullYear()} Jewellery. All rights reserved.
           </p>
           <div className="mt-2">
             <Link href="/privacy-policy" passHref>

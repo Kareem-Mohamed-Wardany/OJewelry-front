@@ -3,8 +3,8 @@ import CommonForm from "@/components/common/form";
 import { toast } from "react-toastify";
 import { loginFormControls } from "@/config";
 import { loginUser } from "@/store/auth-slice";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 const initialState = {

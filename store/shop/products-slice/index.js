@@ -102,13 +102,17 @@ const shoppingProductSlice = createSlice({
       })
       .addCase(fetchAllFilteredProducts.fulfilled, (state, action) => {
         state.isLoading = false;
-        const { products, pagination } = action.payload.data;
+        if (action.payload.data) {
 
-        // Append new products to the existing product list
-        state.productList = [...state.productList, ...products.filter(
-          (product) => !state.productList.some((p) => p._id === product._id)
-        ),];
-        state.hasMore = pagination.currentPage < pagination.totalPages; // Determine if there are more pages
+          const { products, pagination } = action.payload.data;
+
+          // Append new products to the existing product list
+          state.productList = [...state.productList, ...products.filter(
+            (product) => !state.productList.some((p) => p._id === product._id)
+          ),];
+          state.hasMore = pagination.currentPage < pagination.totalPages; // Determine if there are more pages
+        }
+
       })
       .addCase(fetchAllFilteredProducts.rejected, (state) => {
         state.isLoading = false;

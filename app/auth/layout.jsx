@@ -1,7 +1,6 @@
-import StoreProvider from "../StoreProvider";
 export const metadata = {
-  title: "O Jewelry Authentication",
-  description: "Authentication for O Jewelry Shop",
+  title: "Jewellery Authentication",
+  description: "Authentication for O Jewellery Shop",
 };
 
 export default function RootLayout({ children }) {

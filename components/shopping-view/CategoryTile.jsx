@@ -14,7 +14,7 @@ export const CategoryTile = ({ categoryItem, handleNavigateToListingPage }) => {
             {/* Set a fixed height */}
             <Image
               alt={categoryItem.label}
-              src={"https://placehold.co/200x200/webp"}
+              src={categoryItem.image}
               layout="fill"
               objectPosition="center"
               priority

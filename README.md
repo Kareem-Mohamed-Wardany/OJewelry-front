@@ -1,12 +1,12 @@
-# OJewelry Website
+# Jewellery Website
 
-A modern, fully responsive e-commerce platform for a jewelry store, built with **Next.js**, **Tailwind CSS**, and **Redux** for state management. The platform allows customers to browse jewelry collections, add products to their cart, enter shipping details, and complete payments via **Paymob** integration. Admins can manage products, apply discounts, and update the homepage visuals dynamically.
+A modern, fully responsive e-commerce platform for a Jewellery store, built with **Next.js**, **Tailwind CSS**, and **Redux** for state management. The platform allows customers to browse Jewellery collections, add products to their cart, enter shipping details, and complete payments via **Paymob** integration. Admins can manage products, apply discounts, and update the homepage visuals dynamically.
 
 ## Features
 
 ### Customer Features
 
-- 🛍️ Browse a variety of jewelry products with detailed descriptions.
+- 🛍️ Browse a variety of Jewellery products with detailed descriptions.
 - 🛒 Add products to the shopping cart and manage the cart contents.
 - 📦 Enter shipping addresses for delivery.
 - 💳 Secure payment processing via **Paymob** integration.
@@ -14,7 +14,7 @@ A modern, fully responsive e-commerce platform for a jewelry store, built with *
 
 ### Admin Features
 
-- ➕ Add new jewelry products with images and descriptions.
+- ➕ Add new Jewellery products with images and descriptions.
 - ✏️ Edit existing product details, including pricing and availability.
 - 💰 Apply sales or discounts to specific products.
 - 🖼️ Upload and change the Hero image for the homepage.
@@ -31,13 +31,13 @@ A modern, fully responsive e-commerce platform for a jewelry store, built with *
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/Kareem-Mohamed-Wardany/OJewelry-front.git
+   git clone https://github.com/Kareem-Mohamed-Wardany/Jewellery-front.git
    ```
 
 2. **Navigate to the project folder:**
 
    ```sh
-   cd OJewelry-front
+   cd Jewellery-front
    ```
 
 3. **Install dependencies:**
@@ -56,7 +56,7 @@ A modern, fully responsive e-commerce platform for a jewelry store, built with *
 
 - The application can be deployed on **Vercel** for seamless performance.
 - Ensure all environment variables are properly configured on the hosting platform.
-- There is a separate repository for the backend, which handles business logic and database interactions. You can find it here: [Ojewelry Server](https://github.com/Kareem-Mohamed-Wardany/Ojewelry-server).
+- There is a separate repository for the backend, which handles business logic and database interactions. You can find it here: [Jewellery Server](https://github.com/Kareem-Mohamed-Wardany/Jewellery-server).
 
 ## 🤝 Contributions
 
